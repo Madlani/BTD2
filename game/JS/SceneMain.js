@@ -27,6 +27,10 @@ class SceneMain extends Phaser.Scene {
     }
   
     create() {
+        var gameScore = 0;
+        var highScore = 5;
+        document.getElementById("highScore").innerHTML = "High Score: " + highScore;
+
         this.anims.create({
             key: "sprExplosion",
             frames: this.anims.generateFrameNumbers("sprExplosion"),
@@ -113,9 +117,15 @@ class SceneMain extends Phaser.Scene {
                 enemy.pop(true);
                 playerDart.destroy();
                 // this.gameScore++;
-                this.player.gameScore++;
-                console.log(this.player.gameScore);
-                console.log(this.gameScore);
+                gameScore++;
+                document.getElementById("gameScore").innerHTML = "Current Score: " + gameScore;
+                if (gameScore > highScore){
+                    highScore = gameScore;
+                }
+                document.getElementById("highScore").innerHTML = "High Score: " + highScore;
+
+                // console.log(this.player.gameScore);
+                //console.log(document.getElementById("gmaeScore").innerHTML);
               }
         });
 
