@@ -12,27 +12,10 @@ class SceneMain extends Phaser.Scene {
         frameWidth: 32,
         frameHeight: 32
         });
-        this.load.spritesheet("sprEnemy0", "content/sprEnemy0.png", {
-        frameWidth: 16,
-        frameHeight: 16
-        });
-        this.load.image("sprEnemy1", "content/sprEnemy1.png");
-        this.load.spritesheet("sprEnemy2", "content/sprEnemy2.png", {
-        frameWidth: 16,
-        frameHeight: 16
-        });
-        this.load.image("sprLaserEnemy0", "content/sprLaserEnemy0.png");
-        this.load.image("sprLaserPlayer", "content/sprLaserPlayer.png");
+
         this.load.image("sprDart", "content/sprDart.png");
-        // this.load.spritesheet("sprPlayer", "content/sprPlayer.png", {
-        // frameWidth: 16,
-        // frameHeight: 16
-        // });
         this.load.image("sprPlayer", "content/sprPlayer.png");
         this.load.image("redBalloon", "content/redBalloon.png");
-        this.load.audio("sndExplode0", "content/sndExplode0.wav");
-        this.load.audio("sndExplode1", "content/sndExplode1.wav");
-        this.load.audio("sndLaser", "content/sndLaser.wav");
 
         this.load.image("sprBtnPlay", "content/sprBtnPlay.png");
         this.load.image("sprBtnPlayHover", "content/sprBtnPlayHover.png");
@@ -41,47 +24,15 @@ class SceneMain extends Phaser.Scene {
         this.load.image("sprBtnRestartHover", "content/sprBtnRestartHover.png");
         this.load.image("sprBtnRestartDown", "content/sprBtnRestartDown.png");
 
-        this.load.audio("sndBtnOver", "content/sndBtnOver.wav");
-        this.load.audio("sndBtnDown", "content/sndBtnDown.wav");
-
     }
   
     create() {
-        this.anims.create({
-            key: "sprEnemy0",
-            frames: this.anims.generateFrameNumbers("sprEnemy0"),
-            frameRate: 20,
-            repeat: -1
-        });
-      
-        this.anims.create({
-            key: "sprEnemy2",
-            frames: this.anims.generateFrameNumbers("sprEnemy2"),
-            frameRate: 20,
-            repeat: -1
-        });
-      
         this.anims.create({
             key: "sprExplosion",
             frames: this.anims.generateFrameNumbers("sprExplosion"),
             frameRate: 20,
             repeat: 0
         });
-      
-        // this.anims.create({
-        //     key: "sprPlayer",
-        //     frames: this.anims.generateFrameNumbers("sprPlayer"),
-        //     frameRate: 20,
-        //     repeat: -1
-        // });
-
-        this.sfx = {
-            explosions: [
-              this.sound.add("sndExplode0"),
-              this.sound.add("sndExplode1")
-            ],
-            laser: this.sound.add("sndLaser")
-        };
       
         this.player = new Player(
             this,
